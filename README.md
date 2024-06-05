@@ -30,6 +30,8 @@ Para melhorar a performance no WordPress, recomenda-se a seguinte ordem de prior
 5. **Otimização da Base de Dados**
 6. **Medidas de Segurança**
 
+Cada uma destas "camadas" constrói em cima da anterior. Se uma não tiver bem provavelmente fazer as outras não vai trazer melhorias significativas. Desde logo se o alojamento ou a programação não estiverem bem tudo o resto será apenas "pôr batom no porco".
+
 ## Bom Alojamento
 
 Um bom alojamento é fundamental para a performance do WordPress. Isso já sabemos. O que devemos ter em atenção?
@@ -45,7 +47,8 @@ Adotar boas práticas de programação é essencial para garantir a performance 
 
 - **Lazy Loading:** Carregar recursos apenas quando necessário.
 - **Async e Defer:** Utilizar atributos `async` e `defer` em scripts para melhorar o carregamento.
-- **Delegação de Tarefas:** Mover tarefas pesadas para serviços externos, como utilizar Elasticsearch para busca.
+- **Delegar Tarefas Pesadas:** Mover tarefas pesadas para serviços externos ou microserviços, e.g. scripts que precisem efetuar tarefas em bulk ou ter tempos de espera grandes. 
+- **Pesquisa**: em concreto na pesquisa é normalmente uma boa prática utilizar Elasticsearch ou algo similar. A Cloudways já disponibiliza Elasticsearch de base, ver [este artigo](https://support.cloudways.com/en/articles/5120760-how-to-configure-elasticsearch-on-cloudways).
 - **Carregamento Condicional de Scripts e Estilos:** Carregar scripts e estilos apenas onde são necessários, evitando carregamento desnecessário em todas as páginas.
 - **Minimizar Queries ao Banco de Dados:** Evitar usar `posts_per_page => -1` e otimizar queries para melhorar a performance.
 
