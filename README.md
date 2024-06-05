@@ -56,6 +56,11 @@ Adotar boas práticas de programação e engenharia é essencial para garantir a
 - **Pesquisa**: na pesquisa é uma boa prática delegar para um serviço externo e.g. Elasticsearch ou algo similar. A Cloudways já disponibiliza Elasticsearch de base, ver [este artigo](https://support.cloudways.com/en/articles/5120760-how-to-configure-elasticsearch-on-cloudways).
 - **Carregamento Condicional de Scripts e Estilos:** Carregar scripts e estilos apenas onde são necessários, evitando carregamento desnecessário em todas as páginas.
 - **Minimizar Queries ao Banco de Dados:** Evitar usar `posts_per_page => -1` e otimizar queries para melhorar a performance.
+- **Caching:** Utilizar técnicas de caching para armazenar dados frequentemente acessados e reduzir o tempo de carregamento. Isso pode ser feito em vários níveis, incluindo o cache do navegador, o cache do servidor e o cache do banco de dados.
+- **CDN (Content Delivery Network):** Utilizar uma CDN para entregar conteúdo estático, como imagens e scripts, pode melhorar significativamente a velocidade de carregamento do site, especialmente para usuários que estão geograficamente distantes do servidor.
+- **Otimização de Imagens:** As imagens devem ser otimizadas para a web, reduzindo seu tamanho sem comprometer a qualidade. Isso pode ser feito através de várias técnicas, como compressão de imagens, uso de formatos de imagem modernos (como WebP) e carregamento de imagens responsivas.
+- **Testes de Performance:** Realizar testes de performance regularmente para identificar gargalos e oportunidades de otimização. Ferramentas como Google Lighthouse e WebPageTest podem ser úteis para isso.
+- **Segurança:** Implementar práticas de segurança, como o uso de HTTPS, atualização regular de software e plugins, e limitação de acesso ao painel de administração, é crucial para proteger o site contra ataques.
 
 ## Otimização de Imagens e Offloading
 
