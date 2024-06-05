@@ -35,7 +35,7 @@ Para melhorar a performance no WordPress, recomenda-se a seguinte ordem de prior
 Um bom alojamento é fundamental para a performance do WordPress. Isso já sabemos. O que devemos ter em atenção?
 
 - Excelente Time to First Byte (TTFB)
-- Infraestrutura técnica avançada (preferência por containers ao invés de VMs)
+- Infraestrutura técnica avançada (preferência por [containers ao invés de VMs](https://pantheon.io/blog/why-we-built-pantheon-containers-instead-virtual-machines))
 - Suporte para as versões de PHP mais recentes 
 - Certificados SSL gratuitos
 
@@ -70,7 +70,7 @@ Configurar corretamente caching pode melhorar significativamente a performance d
 A base de dados deve ser otimizada regularmente para manter a performance. Algumas dicas incluem:
 
 - Minimizar o número de linhas na tabela `post_meta`.
-- Manter debaixo de olho o número de linhas na tabela wp_options em que o autoload esteja a true
+- Manter debaixo de olho o número de linhas na tabela wp_options em que o autoload esteja a true, ver [este artigo](https://docs.pantheon.io/optimize-wp-options-table-autoloaded-data)
 - Utilizar índices adequados nas tabelas do banco de dados.
 - Remover dados obsoletos e revisões de posts não utilizados.
 
