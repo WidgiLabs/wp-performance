@@ -59,7 +59,7 @@ A otimização de imagens é crucial para reduzir o tempo de carregamento da pá
 
 ## Configuração de Caching
 
-Configurar corretamente o caching pode melhorar significativamente a performance do seu site. As práticas incluem:
+Configurar corretamente caching pode melhorar significativamente a performance do seu site. As práticas incluem:
 
 - Utilizar um plugin de cache confiável.
 - Configurar a cache do browser para armazenar recursos estáticos.
@@ -76,16 +76,17 @@ A base de dados deve ser otimizada regularmente para manter a performance. Algum
 
 ## Medidas de Segurança
 
-Medidas de segurança não só protegem seu site como também podem melhorar a performance. Algumas práticas incluem:
+A maior parte das pessoas não se apercebe mas medidas de segurança não só protegem o site como também podem melhorar a performance (e.g. aliviando o servidor). Algumas boas práticas incluem:
 
+- Utilização de Cloudflare.
 - Implementar uma firewall web (WAF) para bloquear e filtrar tráfego malicioso antes de chegar ao servidor.
 - Utilizar plugins de segurança como Wordfence ou Sucuri.
 
 ## Ferramentas Úteis
 
-- **Query Monitor:** Para monitorar e depurar queries de banco de dados.
+- **Query Monitor:** Permite fazer debugging às queries que são feitas à base de dados.
 - **GTmetrix e Google PageSpeed Insights:** Para análise de performance e sugestões de melhorias.
-- **New Relic:** Para monitoramento de performance de aplicações.
+- **New Relic:** Para monitoring de performance, nomeadamente tempos de resposta, logs, etc. 
 
 ## Conclusão
 
