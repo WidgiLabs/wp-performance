@@ -34,7 +34,7 @@ Para melhorar a performance no WordPress, recomenda-se a seguinte ordem de prior
 5. **Otimização da Base de Dados**
 6. **Medidas de Segurança**
 
-Cada uma destas "camadas" constrói em cima da anterior. Se uma não tiver bem provavelmente fazer as outras não vai trazer melhorias significativas. Desde logo se o alojamento ou a programação não estiverem bem tudo o resto será apenas "pôr batom no porco".
+Cada uma destas "camadas" constrói-se em cima da anterior. Se uma não tiver bem provavelmente fazer as outras pode não trazer melhorias significativas, e.g. se o alojamento ou a programação não estiverem bem tudo o resto será apenas "pôr batom no porco".
 
 ## Bom Alojamento
 
