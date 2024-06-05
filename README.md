@@ -67,6 +67,9 @@ A otimização de imagens é crucial para reduzir o tempo de carregamento da pá
 
 O offloading consiste em carregar as imagens através de um serviço externo. A Cloudflare permite converter as imagens em WebP e fazer o offload de media, ver e.g. [este artigo](https://themedev.net/blog/how-to-offload-wp-media-to-cloudflare-r2/).
 
+Ferramenta recomendada: 
+https://squoosh.app/
+
 ## Configuração de Caching
 
 Configurar corretamente caching pode melhorar significativamente a performance. As boas práticas neste caso incluem:
