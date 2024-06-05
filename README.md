@@ -60,6 +60,8 @@ A otimização de imagens é crucial para reduzir o tempo de carregamento da pá
 - Redimensionar imagens para as dimensões exatas necessárias antes de fazer o upload.
 - Usar plugins como WP Smush ou EWWW Image Optimizer para compressão automática de imagens.
 
+A Cloudflare permite converter as imagens em WebP fazer o offload de media, ver e.g. [este artigo](https://themedev.net/blog/how-to-offload-wp-media-to-cloudflare-r2/).
+
 ## Configuração de Caching
 
 Configurar corretamente caching pode melhorar significativamente a performance do seu site. As práticas incluem:
