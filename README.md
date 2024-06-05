@@ -21,7 +21,7 @@ A performance deve ser uma preocupação constante ao longo do desenvolvimento e
 
 A performance de um site WordPress envolve várias etapas e boas práticas. Não se trata apenas de ativar plugins de cache e otimizar imagens. É necessário adotar uma abordagem holística e contínua, integrando boas práticas de engenharia e utilizando ferramentas adequadas.
 
-Assumindo que em termos de programação está tudo bem no final do dia, em termos de performance tudo passará por escolhas. Que alojamento? Que plugins? que versão do PHP? que versão da base de dados, etc etc. e que combinação de todas estas opções funciona melhor em termos de performance para o caso em questão e budget disponível.
+Em termos de performance tudo passará por escolhas. Que alojamento? Que plugins? que versão do PHP? que versão da base de dados, etc etc. e que combinação de todas estas opções funciona melhor em termos de performance para o caso em questão e budget disponível. Isto assumindo que não existem questões de programação mal feitas pois código mal feito ou lento será problemático em qualquer infra-estrutura/configuração.
 
 ## Ordem de Prioridades
 
