@@ -1,11 +1,9 @@
 # wp-performance
 Boas práticas para Performance no WordPress
 
-Foste encarregue de melhorar a performance de um site WordPress. Por onde começar? 
+O objetivo maior é fornecer uma experiência de frontend muito rápida e para isso é preciso engenharia avançada e não apenas "plugins".
 
-O objetivo maior é ter uma experiência de frontend muito rápida e para isso precisamos de engenharia avançada e não apenas "plugins".
-
-A performance é uma preocupação constante e não deve ser tratada como uma tarefa única. Este guia tem como objetivo reunir boas práticas de engenharia e ferramentas e ser um bom ponto de partida para melhorar a performance de um site WordPress (i.e. um site assente em WordPress.org com um tema feito de raiz ou pelo menos onde tem controle sobre o código).
+A performance deve ser uma preocupação constante ao longo do desenvolvimento e não deve ser tratada como uma tarefa única. Este guia tem como objetivo reunir boas práticas de engenharia e ferramentas e ser um bom ponto de partida para melhorar a performance de um site WordPress (i.e. um site assente em WordPress.org com um tema feito de raiz ou pelo menos onde tem controle sobre o código).
 
 ## Índice
 1. [Introdução](#introdução)
@@ -22,6 +20,8 @@ A performance é uma preocupação constante e não deve ser tratada como uma ta
 ## Introdução
 
 A performance de um site WordPress envolve várias etapas e boas práticas. Não se trata apenas de ativar plugins de cache e otimizar imagens. É necessário adotar uma abordagem holística e contínua, integrando boas práticas de engenharia e utilizando ferramentas adequadas.
+
+Assumindo que em termos de programação está tudo bem no final do dia, em termos de performance tudo passará por escolhas. Que alojamento? Que plugins? que versão do PHP? que versão da base de dados, etc etc. e que combinação de todas estas opções funciona melhor em termos de performance para o caso em questão e budget disponível.
 
 ## Ordem de Prioridades
 
@@ -42,7 +42,7 @@ Um bom alojamento é fundamental para a performance do PHP/WordPress. Isso já s
 
 - Excelente Time to First Byte (TTFB), [ver um leaderboard que compara diferentes opções](https://ismyhostfastyet.com/).
 - Infraestrutura técnica avançada (preferência por [containers ao invés de VMs](https://pantheon.io/blog/why-we-built-pantheon-containers-instead-virtual-machines))
-- Suporte para as versões de PHP mais recentes.
+- Suporte para as versões de PHP mais recentes, ver [PHP Benchmarks: Real-World Speed Tests for Versions 8.1, 8.2, and 8.3](https://kinsta.com/blog/php-benchmarks/) 
 
 Se não for viável mudar para um alojamento especializado em WordPress tentar garantir pelo menos que a versão do PHP é a mais recente e que os módulos de otimização no servidor estão ligados (dependente do alojamento estas opções serão diferentes mas o suporte poderá ajudar a verificar).
 
