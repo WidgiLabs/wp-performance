@@ -1,7 +1,9 @@
 # wp-performance
 Boas práticas para Performance no WordPress
 
-A performance é uma preocupação constante e não deve ser tratada como uma tarefa única. Este guia tem como objetivo reunir boas práticas e ferramentas para melhorar a performance de um site WordPress (i.e. um site assente em WordPress.org com um tema feito de raiz ou pelo menos onde tem controle sobre o código).
+Foste encarregue de melhorar a performance de um site WordPress. Mas por onde começar? 
+
+A performance é uma preocupação constante e não deve ser tratada como uma tarefa única. Contudo este guia tem como objetivo reunir boas práticas e ferramentas e ser um bom ponto de partida para melhorar a performance de um site WordPress (i.e. um site assente em WordPress.org com um tema feito de raiz ou pelo menos onde tem controle sobre o código).
 
 ## Índice
 1. [Introdução](#introdução)
