@@ -1,9 +1,11 @@
 # wp-performance
 Boas práticas para Performance no WordPress
 
-Foste encarregue de melhorar a performance de um site WordPress. Mas por onde começar? 
+Foste encarregue de melhorar a performance de um site WordPress. Por onde começar? 
 
-A performance é uma preocupação constante e não deve ser tratada como uma tarefa única. Contudo este guia tem como objetivo reunir boas práticas e ferramentas e ser um bom ponto de partida para melhorar a performance de um site WordPress (i.e. um site assente em WordPress.org com um tema feito de raiz ou pelo menos onde tem controle sobre o código).
+O objetivo maior é ter uma experiência de frontend muito rápida e para isso precisamos de engenharia avançada e não apenas "plugins".
+
+A performance é uma preocupação constante e não deve ser tratada como uma tarefa única. Este guia tem como objetivo reunir boas práticas de engenharia e ferramentas e ser um bom ponto de partida para melhorar a performance de um site WordPress (i.e. um site assente em WordPress.org com um tema feito de raiz ou pelo menos onde tem controle sobre o código).
 
 ## Índice
 1. [Introdução](#introdução)
@@ -36,62 +38,63 @@ Cada uma destas "camadas" constrói em cima da anterior. Se uma não tiver bem p
 
 ## Bom Alojamento
 
-Um bom alojamento é fundamental para a performance do WordPress. Isso já sabemos. O que devemos ter em atenção?
+Um bom alojamento é fundamental para a performance do PHP/WordPress. Isso já sabemos. O que devemos ter em atenção?
 
-- Excelente Time to First Byte (TTFB)
+- Excelente Time to First Byte (TTFB), [ver um leaderboard que compara diferentes opções](https://ismyhostfastyet.com/).
 - Infraestrutura técnica avançada (preferência por [containers ao invés de VMs](https://pantheon.io/blog/why-we-built-pantheon-containers-instead-virtual-machines))
-- Suporte para as versões de PHP mais recentes 
-- Certificados SSL gratuitos
+- Suporte para as versões de PHP mais recentes.
+
+Se não for viável mudar para um alojamento especializado em WordPress tentar garantir pelo menos que a versão do PHP é a mais recente e que os módulos de otimização no servidor estão ligados (dependente do alojamento estas opções serão diferentes mas o suporte poderá ajudar a verificar).
 
 ## Boas Práticas de Programação
 
-Adotar boas práticas de programação é essencial para garantir a performance e escalabilidade do site. Seguem algumas recomendações baseadas no [guia da 10up](https://10up.github.io/Engineering-Best-Practices/php/):
+Adotar boas práticas de programação e engenharia é essencial para garantir a performance e escalabilidade do site. Seguem algumas recomendações baseadas no [guia da 10up](https://10up.github.io/Engineering-Best-Practices/php/):
 
-- **Lazy Loading:** Carregar recursos apenas quando necessário.
+- **Lazy Loading:** Carregar os recursos (images, scripts, styles, ..) apenas quando necessário.
 - **Async e Defer:** Utilizar atributos `async` e `defer` em scripts para melhorar o carregamento.
-- **Delegar Tarefas Pesadas:** Mover tarefas pesadas para serviços externos ou microserviços, e.g. scripts que precisem efetuar tarefas em bulk ou ter tempos de espera grandes. 
-- **Pesquisa**: em concreto na pesquisa é normalmente uma boa prática utilizar Elasticsearch ou algo similar. A Cloudways já disponibiliza Elasticsearch de base, ver [este artigo](https://support.cloudways.com/en/articles/5120760-how-to-configure-elasticsearch-on-cloudways).
+- **Delegar Tarefas Pesadas:** Mover tarefas pesadas para serviços externos ou micro-serviços, tirar o peso de cima do PHP/WordPress, e.g. scripts que precisem efetuar tarefas em bulk ou ter tempos de espera grandes. 
+- **Pesquisa**: na pesquisa é uma boa prática delegar para um serviço externo e.g. Elasticsearch ou algo similar. A Cloudways já disponibiliza Elasticsearch de base, ver [este artigo](https://support.cloudways.com/en/articles/5120760-how-to-configure-elasticsearch-on-cloudways).
 - **Carregamento Condicional de Scripts e Estilos:** Carregar scripts e estilos apenas onde são necessários, evitando carregamento desnecessário em todas as páginas.
 - **Minimizar Queries ao Banco de Dados:** Evitar usar `posts_per_page => -1` e otimizar queries para melhorar a performance.
 
-## Otimização de Imagens
+## Otimização de Imagens e Offloading
 
 A otimização de imagens é crucial para reduzir o tempo de carregamento da página. Algumas práticas incluem:
 
 - Utilizar formatos de imagem modernos como WebP.
 - Redimensionar imagens para as dimensões exatas necessárias antes de fazer o upload.
-- Usar plugins como WP Smush ou EWWW Image Optimizer para compressão automática de imagens.
+- Compressão automática de imagens.
 
-A Cloudflare permite converter as imagens em WebP fazer o offload de media, ver e.g. [este artigo](https://themedev.net/blog/how-to-offload-wp-media-to-cloudflare-r2/).
+O offloading consiste em carregar as imagens através de um serviço externo. A Cloudflare permite converter as imagens em WebP e fazer o offload de media, ver e.g. [este artigo](https://themedev.net/blog/how-to-offload-wp-media-to-cloudflare-r2/).
 
 ## Configuração de Caching
 
-Configurar corretamente caching pode melhorar significativamente a performance do seu site. As práticas incluem:
+Configurar corretamente caching pode melhorar significativamente a performance. As boas práticas neste caso incluem:
 
-- Utilizar um plugin de cache confiável.
-- Configurar a cache do browser para armazenar recursos estáticos.
-- Implementar object cache com Redis ou Memcached.
+- Utilizar um plugin de cache confiável (há muitas opções e será uma questão de preferência pessoal no final do dia).
+- Configurar a cache do browser para armazenar recursos estáticos (é normalmente uma opção do plugin de cache).
+- Implementar object cache com Redis ou Memcached (alguns alojamentos suportam já de base mas podem não estar ativo).
 
 ## Otimização da Base de Dados
 
 A base de dados deve ser otimizada regularmente para manter a performance. Algumas dicas incluem:
 
 - Minimizar o número de linhas na tabela `post_meta`.
-- Manter debaixo de olho o número de linhas na tabela wp_options em que o autoload esteja a true, ver [este artigo](https://docs.pantheon.io/optimize-wp-options-table-autoloaded-data)
-- Utilizar índices adequados nas tabelas do banco de dados.
-- Remover dados obsoletos e revisões de posts não utilizados.
+- Manter debaixo de olho o número de linhas na tabela wp_options com "autoload=true", ver [este artigo](https://docs.pantheon.io/optimize-wp-options-table-autoloaded-data)
+- Utilizar índices nas tabelas da base de dados.
+- Remover dados obsoletos e revisões de posts antigas/não utilizadas.
+- Limitar o número de revisões a serem guardadas na base de dados, ver [este artigo](https://wordpress.org/documentation/article/revisions/).
 
 ## Medidas de Segurança
 
-A maior parte das pessoas não se apercebe mas medidas de segurança não só protegem o site como também podem melhorar a performance (e.g. aliviando o servidor). Algumas boas práticas incluem:
+A maior parte das pessoas não se apercebe que as medidas de segurança não só protegem o site como também podem melhorar a performance (e.g. aliviando o servidor). Algumas boas práticas incluem:
 
-- Utilização de Cloudflare.
-- Implementar uma firewall web (WAF) para bloquear e filtrar tráfego malicioso antes de chegar ao servidor.
-- Utilizar plugins de segurança como Wordfence ou Sucuri.
+- Utilização de Cloudflare ou outra Web firewall (WAF) para bloquear e filtrar tráfego malicioso antes de chegar ao servidor.
+- Se não for possível utilizar uma WAF pode utilizar plugins de segurança como Wordfence ou Sucuri contudo a performance poderá ser afectada pois o processamento destes plugins ocorre dentro do PHP/WordPress.
 
 ## Ferramentas Úteis
 
-- **Query Monitor:** Permite fazer debugging às queries que são feitas à base de dados.
+- **Plugin Query Monitor:** Permite fazer debugging às queries que são feitas à base de dados.
 - **GTmetrix e Google PageSpeed Insights:** Para análise de performance e sugestões de melhorias.
 - **New Relic:** Para monitoring de performance, nomeadamente tempos de resposta, logs, etc. 
 
